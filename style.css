@@ -1,0 +1,236 @@
+/* Background with a soft pink romantic gradient */
+body {
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(45deg, #ff758c, #ff7eb3);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+
+}
+
+
+/* 🎭 Even Bigger Portrait Frames */
+/* 🎭 Bigger Portrait Frames with Smooth Slideshow */
+.portrait {
+    position: absolute;
+    top: 5%;
+    width: 320px;
+    height: 450px;
+    border-radius: 25px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: framePulse 2s infinite alternate;
+}
+
+/* 🖼️ Portrait Images with Fade Effect */
+.portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 2.5s ease-in-out;
+}
+
+/* Make the first image visible instantly */
+.portrait img:first-child {
+    opacity: 1;
+}
+
+/* Make the current image visible */
+.portrait img.active {
+    opacity: 1;
+}
+
+
+/* 📍 Adjusted Portrait Positions */
+.left {
+    left: 1%;
+}
+
+.right {
+    right: 1%;
+}
+
+/* 🏠 Reduced Birthday Box Size */
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.7);
+    position: relative;
+    width: 50%;  /* Further reduced width */
+    max-width: 450px;  /* Ensures it’s not too big */
+    z-index: 10;
+}
+
+
+/* ✨ Glowing Frame Animation */
+@keyframes framePulse {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 20, 147, 0.7), inset 0 0 10px rgba(255, 105, 180, 0.5);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 20, 147, 1), inset 0 0 15px rgba(255, 105, 180, 0.7);
+        transform: scale(1.05);
+    }
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    font-size: 24px;
+    color: rgba(255, 20, 147, 0.7);
+    animation: floatHearts 5s linear infinite;
+}
+
+@keyframes floatHearts {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-50vh); opacity: 0.6; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Romantic Glow Effect */
+h1, .message {
+    color: #ff1493;
+    text-shadow: 0 0 10px rgba(255, 20, 147, 0.7);
+}
+
+/* Countdown */
+#countdown {
+    font-size: 1.5em;
+    color: #ff1493;
+    margin: 10px 0;
+}
+
+/* Hidden elements */
+.hidden {
+    display: none;
+}
+
+/* Glowing effect for images */
+.glow {
+    animation: glowEffect 2s infinite alternate;
+}
+
+@keyframes glowEffect {
+    from { box-shadow: 0 0 10px #ff1493; }
+    to { box-shadow: 0 0 30px #ff69b4; }
+}
+
+/* Confetti Canvas */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+/* Love Letter Button */
+#loveLetterBtn {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff4d6d;
+    color: white;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+    z-index: 1000; /* High z-index when letter is closed */
+}
+
+/* Reduce button z-index when letter is open */
+#loveLetterContainer.active + #loveLetterBtn {
+    z-index: 1;
+}
+
+#loveLetterBtn:hover {
+    background-color: #ff1a4c;
+}
+
+/* Love Letter Overlay */
+#loveLetterContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Show the letter properly */
+#loveLetterContainer.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Love Letter Box */
+#loveLetter {
+    background: white;
+    color: black;
+    width: 60%;
+    max-height: 70%;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    overflow-y: auto;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Scrollable Content */
+#loveLetter p {
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+/* Close Button */
+#closeLetter {
+    margin-top: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    background: #ff4d6d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+#closeLetter:hover {
+    background: #ff1a4c;
+}
+
+/* Smooth Fade Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
